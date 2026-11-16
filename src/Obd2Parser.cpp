@@ -4,7 +4,7 @@ twai_message_t Obd2Parser::createQuery(uint8_t pid) {
     twai_message_t message;
     message.identifier = 0x7DF; // Broadcast ID for OBD-II requests
     message.extd = 0;           // Standard 11-bit ID
-    message.rts = 0;
+    message.rtr = 0;            // Data frame
     message.data_length_code = 8;
     
     message.data[0] = 0x02; // Number of bytes of the request (Mode + PID)
