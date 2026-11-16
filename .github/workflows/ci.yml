@@ -25,3 +25,4 @@ jobs:
 
     - name: Run PlatformIO Build (ESP32)
       run: pio run -e esp32dev
+
