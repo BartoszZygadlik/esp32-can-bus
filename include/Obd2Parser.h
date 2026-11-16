@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include "driver/twai.h"
 
-// Struktura przechowująca zdekodowane dane OBD-II
+// Struct storing decoded OBD-II data
 struct OBD2Data {
     bool rpmValid = false;
     uint16_t rpm = 0;
@@ -20,10 +20,10 @@ struct OBD2Data {
 
 class Obd2Parser {
 public:
-    // Generuje ramkę zapytania OBD-II (Service 01) dla podanego PID
+    // Generates an OBD-II query frame (Service 01) for the given PID
     static twai_message_t createQuery(uint8_t pid);
 
-    // Parsuje ramkę odpowiedzi i aktualizuje przekazaną strukturę danych
+    // Parses a response frame and updates the provided data struct
     static bool parseResponse(const twai_message_t &message, OBD2Data &data);
 };
 

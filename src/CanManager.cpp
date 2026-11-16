@@ -11,16 +11,16 @@ bool CanManager::init(bool listenOnly) {
     twai_filter_config_t f_config = TWAI_FILTER_CONFIG_ACCEPT_ALL();
 
     if (twai_driver_install(&g_config, &t_config, &f_config) != ESP_OK) {
-        Serial.println("[BŁĄD] Nie udało się zainstalować sterownika TWAI!");
+        Serial.println("[ERROR] Failed to install TWAI driver!");
         return false;
     }
-    Serial.println("[TWAI] Sterownik zainstalowany poprawnie.");
+    Serial.println("[TWAI] Driver installed successfully.");
 
     if (twai_start() != ESP_OK) {
-        Serial.println("[BŁĄD] Nie udało się uruchomić magistrali CAN!");
+        Serial.println("[ERROR] Failed to start CAN bus!");
         return false;
     }
-    Serial.println("[TWAI] Magistrala CAN uruchomiona i gotowa.");
+    Serial.println("[TWAI] CAN bus started and ready.");
     return true;
 }
 

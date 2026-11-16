@@ -4,22 +4,22 @@ WebServer WebDashboard::server(80);
 WebSocketsServer WebDashboard::webSocket(81);
 
 void WebDashboard::init() {
-    // Uruchomienie ESP32 jako Access Point
+    // Launch ESP32 as Access Point
     WiFi.softAP(WIFI_AP_SSID, WIFI_AP_PASS);
     IPAddress IP = WiFi.softAPIP();
     
-    Serial.println("\n[Wi-Fi] Access Point uruchomiony!");
-    Serial.printf("[Wi-Fi] Nazwa sieci (SSID): %s\n", WIFI_AP_SSID);
-    Serial.printf("[Wi-Fi] Adres IP Dashboardu: http://%s\n", IP.toString().c_str());
+    Serial.println("\n[Wi-Fi] Access Point started!");
+    Serial.printf("[Wi-Fi] Network Name (SSID): %s\n", WIFI_AP_SSID);
+    Serial.printf("[Wi-Fi] Dashboard IP Address: http://%s\n", IP.toString().c_str());
 
-    // Routing HTTP
+    // HTTP Routing
     server.on("/", HTTP_GET, handleRoot);
     server.begin();
 
-    // Uruchomienie serwera WebSocket
+    // Start WebSocket server
     webSocket.begin();
     webSocket.onEvent(webSocketEvent);
-    Serial.println("[WebSocket] Serwer uruchomiony na porcie 81.");
+    Serial.println("[WebSocket] Server started on port 81.");
 }
 
 void WebDashboard::handleClients() {
@@ -28,7 +28,7 @@ void WebDashboard::handleClients() {
 }
 
 void WebDashboard::broadcastCanFrame(const twai_message_t &message, const OBD2Data &obdData) {
-    // Przygotowanie komunikatu JSON dla WebSocket
+    // Prepare JSON message for WebSocket
     String json = "{";
     json += "\"id\":\"0x" + String(message.identifier, HEX) + "\",";
     json += "\"dlc\":" + String(message.data_length_code) + ",";
@@ -75,10 +75,10 @@ void WebDashboard::handleRoot() {
     html += "<div class=\"card\"><h3>Vehicle Speed</h3><div class=\"value\" id=\"speed\">0 km/h</div></div>";
     html += "<div class=\"card\"><h3>Coolant Temp</h3><div class=\"value\" id=\"temp\">0 &deg;C</div></div>";
     html += "</div>";
-    html += "<div class=\"controls\"><button onclick=\"clearLog()\">Wyczyść tabelę ramek</button></div>";
-    html += "<h2>Rejestr ramek CAN (Live Sniffer)</h2>";
+    html += "<div class=\"controls\"><button onclick=\"clearLog()\">Clear Frame Log</button></div>";
+    html += "<h2>Live CAN Sniffer</h2>";
     html += "<div class=\"table-container\"><table id=\"canTable\">";
-    html += "<tr><th>Czas (ms)</th><th>ID</th><th>DLC</th><th>Dane</th></tr>";
+    html += "<tr><th>Time (ms)</th><th>ID</th><th>DLC</th><th>Data</th></tr>";
     html += "</table></div></div>";
     html += "<script>";
     html += "const ws = new WebSocket('ws://' + window.location.hostname + ':81/');";
@@ -104,8 +104,8 @@ void WebDashboard::handleRoot() {
 void WebDashboard::webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
     if (type == WStype_CONNECTED) {
         IPAddress ip = webSocket.remoteIP(num);
-        Serial.printf("[WebSocket] Klient #%u połączył się z IP: %s\n", num, ip.toString().c_str());
+        Serial.printf("[WebSocket] Client #%u connected from IP: %s\n", num, ip.toString().c_str());
     } else if (type == WStype_DISCONNECTED) {
-        Serial.printf("[WebSocket] Klient #%u rozłączył się\n", num);
+        Serial.printf("[WebSocket] Client #%u disconnected\n", num);
     }
 }
