@@ -1,10 +1,10 @@
 #include "CanManager.h"
 
-bool CanManager::init(bool listenOnly) {
+bool CanManager::init() {
     twai_general_config_t g_config = TWAI_GENERAL_CONFIG_DEFAULT(
         CAN_TX_PIN, 
         CAN_RX_PIN, 
-        listenOnly ? TWAI_MODE_LISTEN_ONLY : TWAI_MODE_NORMAL
+        TWAI_MODE_NORMAL
     );
     
     twai_timing_config_t t_config = TWAI_TIMING_CONFIG_500KBITS(); 

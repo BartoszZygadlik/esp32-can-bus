@@ -7,7 +7,7 @@
 
 class CanManager {
 public:
-    static bool init(bool listenOnly);
+    static bool init();
     static bool receiveMessage(twai_message_t &message);
     static bool transmitMessage(const twai_message_t &message);
 };
