@@ -3,7 +3,7 @@
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-Framework-orange?style=flat-square&logo=platformio)](https://platformio.org/)
 [![ESP32](https://img.shields.io/badge/Board-ESP32%20WROOM-blue?style=flat-square&logo=espressif)](https://www.espressif.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/zygaebar/esp32-can-bus/actions/workflows/ci.yml/badge.svg)](https://github.com/zygaebar/esp32-can-bus/actions)
+[![Build Status](https://github.com/BartoszZygadlik/esp32-can-bus/actions/workflows/ci.yml/badge.svg)](https://github.com/BartoszZygadlik/esp32-can-bus/actions)
 
 An advanced, modular **CAN Bus** analyzer and **OBD-II** diagnostic scanner based on the **ESP32 (NodeMCU 38-pin / ESP-WROOM-32)** microcontroller and the **SN65HVD230 (VP230)** transceiver. The project features a real-time **Web Dashboard** accessible via Wi-Fi (Access Point) using WebSockets.
 
