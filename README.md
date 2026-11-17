@@ -1,4 +1,4 @@
-# ?? ESP32 CAN Bus & OBD-II Analyzer
+﻿# 🚗 ESP32 CAN Bus & OBD-II Analyzer
 
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-Framework-orange?style=flat-square&logo=platformio)](https://platformio.org/)
 [![ESP32](https://img.shields.io/badge/Board-ESP32%20WROOM-blue?style=flat-square&logo=espressif)](https://www.espressif.com/)
@@ -9,7 +9,7 @@ An advanced, modular **CAN Bus** analyzer and **OBD-II** diagnostic scanner base
 
 ---
 
-## ?? Web Dashboard Preview
+## 📱 Web Dashboard Preview
 
 <p align="center">
   <img src="assets/dashboard_preview.png" alt="ESP32 CAN Bus Web Dashboard" width="600">
@@ -17,7 +17,7 @@ An advanced, modular **CAN Bus** analyzer and **OBD-II** diagnostic scanner base
 
 ---
 
-## ?? Safety Disclaimer
+## ⚠️ Safety Disclaimer
 
 > **WARNING:** Interacting with vehicle electronic systems (CAN Bus) involves the risk of disrupting ECU operations.
 > * It is recommended to start in **Sniffer (Listen-Only)** mode, which is 100% passive and safe.
@@ -25,10 +25,10 @@ An advanced, modular **CAN Bus** analyzer and **OBD-II** diagnostic scanner base
 
 ---
 
-## ?? Pinout / Wiring
+## 🔌 Pinout / Wiring
 
 ### 1. ESP32 NodeMCU (38-pin) <--> SN65HVD230 (VP230) Module
-> ? **IMPORTANT:** The SN65HVD230 module must be powered by **3.3V** only.
+> ⚡ **IMPORTANT:** The SN65HVD230 module must be powered by **3.3V** only.
 
 | VP230 Module | ESP32 NodeMCU (38-pin) | Description |
 | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ An advanced, modular **CAN Bus** analyzer and **OBD-II** diagnostic scanner base
 
 ---
 
-## ?? Quick Start
+## 🚀 Quick Start
 
 1. Open the project in **VS Code** with the **PlatformIO** extension installed.
 2. Connect the ESP32 to your computer via USB.
@@ -59,5 +59,5 @@ For detailed installation steps and troubleshooting, check the [INSTALLATION_GUI
 
 ---
 
-## ?? License
+## 📜 License
 This project is licensed under the **MIT** License - see the [LICENSE](LICENSE) file for details.
